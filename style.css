@@ -6,84 +6,114 @@
   
   body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    animation: backgroundFade 5s infinite alternate;
   }
   
   #main {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2.5rem;
+    border-radius: 20px;
     width: 100%;
-    max-width: 420px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    animation: slideUp 0.7s ease;
+    max-width: 440px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    animation: slideUp 0.8s ease;
+    transition: transform 0.3s;
+  }
+  
+  #main:hover {
+    transform: translateY(-5px);
   }
   
   h1 {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #2c3e50;
+    color: #34495e;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
   }
   
   form {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
   }
   
   label {
     font-weight: 600;
+    color: #2c3e50;
   }
   
-  input, select {
-    padding: 0.6rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+  input,
+  select {
+    padding: 0.7rem;
+    border: 1.5px solid #dcdde1;
+    border-radius: 10px;
     font-size: 1rem;
-    width: 100%;
+    background-color: #f7f9fa;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus,
+  select:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 8px rgba(41, 128, 185, 0.3);
+    outline: none;
   }
   
   button {
     margin-top: 1rem;
-    padding: 0.8rem;
-    background-color: #3498db;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, #3498db, #6dd5fa);
     border: none;
     color: white;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
     font-size: 1rem;
+    transition: transform 0.2s ease, background 0.3s ease;
   }
   
   button:hover {
-    background-color: #2980b9;
+    background: linear-gradient(135deg, #2980b9, #57c7f9);
+    transform: scale(1.02);
   }
   
-  .result, .info {
+  .result,
+  .info {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 2.2rem;
+    animation: fadeIn 1.5s ease;
   }
   
   .result h2 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     margin: 0.5rem 0;
-  }
-  
-  #score {
     color: #2c3e50;
   }
   
   #category {
     font-size: 1rem;
     font-weight: bold;
+    color: #7f8c8d;
+  }
+  
+  .info h4 {
+    margin-bottom: 0.8rem;
+    color: #34495e;
+  }
+  
+  .info p {
+    font-size: 0.95rem;
+    color: #555;
   }
   
   .fade-in {
-    animation: fadeIn 1s ease-in;
+    animation: fadeIn 1.3s ease-in-out;
   }
   
   @keyframes slideUp {
@@ -99,6 +129,11 @@
   
   @keyframes fadeIn {
     from { opacity: 0; }
-    to   { opacity: 1; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes backgroundFade {
+    0% { background: linear-gradient(120deg, #a1c4fd, #c2e9fb); }
+    100% { background: linear-gradient(120deg, #d4fc79, #96e6a1); }
   }
   
