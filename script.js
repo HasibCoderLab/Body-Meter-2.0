@@ -1,7 +1,8 @@
 document.getElementById("form").addEventListener("submit", function (e) {
     e.preventDefault();
   
-    const height = parseFloat(document.getElementById("height").value);
+    const feet = parseFloat(document.getElementById("heightFeet").value);
+    const inch = parseFloat(document.getElementById("heightInch").value);
     const weight = parseFloat(document.getElementById("weight").value);
     const age = document.getElementById("age").value;
     const gender = document.getElementById("gender").value;
@@ -9,12 +10,14 @@ document.getElementById("form").addEventListener("submit", function (e) {
     const score = document.getElementById("score");
     const category = document.getElementById("category");
   
-    if (!height || !weight || !age || !gender) {
+    if (!feet || isNaN(feet) || !inch || isNaN(inch) || !weight || !age || !gender) {
       alert("Please fill in all fields.");
       return;
     }
   
-    const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
+    const heightCm = ((feet * 12) + inch) * 2.54;
+  
+    const bmi = (weight / ((heightCm / 100) ** 2)).toFixed(1);
     score.textContent = bmi;
   
     let resultText = "";

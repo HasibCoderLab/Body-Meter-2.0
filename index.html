@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Body-Meter 2.0</title>
   <link rel="shortcut icon" href="Assets/icon.jpeg" type="image/x-icon">
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="main">
     <h1 class="fade-in">Body-Meter 2.0</h1>
     <form id="form" class="fade-in">
-      <label for="height">Height (cm)</label>
-      <input id="height" type="number" placeholder="Enter your height" />
+      <label for="heightFeet">Height</label>
+      <div style="display: flex; gap: 10px;">
+        <input id="heightFeet" type="number" placeholder="Feet" />
+        <input id="heightInch" type="number" placeholder="Inch" />
+      </div>
 
       <label for="weight">Weight (kg)</label>
       <input id="weight" type="number" placeholder="Enter your weight" />
